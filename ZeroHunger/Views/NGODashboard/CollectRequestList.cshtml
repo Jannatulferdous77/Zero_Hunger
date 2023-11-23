@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ZeroHunger.Entity_Framework.collect_requests>
+
+@{
+    ViewBag.Title = "CollectRequestList";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.restaurant.name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.employee_id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.time)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.maximum_preserve_time)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.completion_time)
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.restaurant.name)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.employee.first_name)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.time)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.maximum_preserve_time)
+                </td>
+                <td class="align-middle">
+                    @if (item.status == "Unassigned")
+                    {
+                        <span class="badge bg-danger">
+                            @Html.DisplayFor(modelItem => item.status)
+                        </span>
+                    }
+                    else if (item.status == "Unassigned")
+                    {
+                        <span class="badge bg-info">
+                            @Html.DisplayFor(modelItem => item.status)
+                        </span>
+                    }
+                    else if (item.status == "In Progress")
+                    {
+                        <span class="badge bg-warning">
+                            @Html.DisplayFor(modelItem => item.status)
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">
+                            @Html.DisplayFor(modelItem => item.status)
+                        </span>
+                    }
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.completion_time)
+                </td>
+                <td>
+                    @Html.ActionLink("Assign Employee", "AssignEmployee", new { id = item.id }, htmlAttributes: new { @class = "btn btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="d-grid gap-2">
+    @Html.ActionLink("Restaurant List", "RestaurantList", "NGODashboard", new { area = "" }, new { @class = "btn btn-lg btn-primary" })
+    @Html.ActionLink("Employee List", "EmployeeList", "NGODashboard", new { area = "" }, new { @class = "btn btn-lg btn-primary" })
+    @Html.ActionLink("Collect Requests List", "CollectRequestList", "NGODashboard", new { area = "" }, new { @class = "btn btn-lg btn-primary" })
+    @Html.ActionLink("Collected Food Items List", "CollectedFoodItemsList", "NGODashboard", new { area = "" }, new { @class = "btn btn-lg btn-primary" })
+</div>

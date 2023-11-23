@@ -1,0 +1,42 @@
+﻿@model ZeroHunger.Entity_Framework.collect_requests
+
+@{
+    ViewBag.Title = "AssignEmployee";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>AssignEmployee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>collect_requests</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <select class="form-select" name="employee_id">
+                    <option disabled selected>Select Employee</option>
+                    @foreach (var e in ViewBag.EmployeeList)
+                    {
+                        <option value="@e.id">@e.first_name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

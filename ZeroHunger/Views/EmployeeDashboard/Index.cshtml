@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="d-grid gap-2">
+    @Html.ActionLink("Your Requests List", "AssignedCollectRequests", "EmployeeDashboard", new { area = "" }, new { @class = "btn btn-lg btn-primary" })
+</div>

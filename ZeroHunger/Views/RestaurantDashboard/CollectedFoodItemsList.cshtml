@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ZeroHunger.Entity_Framework.collected_food_items>
+
+@{
+    ViewBag.Title = "CollectedFoodItemsList";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>CollectedFoodItemsList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.collect_request_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.condition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distribution_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distribution_completion_time)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.collect_request_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.condition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distribution_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distribution_completion_time)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Delete", "DeleteCollectedFoodItemsList", new { id = item.id })
+            </td>
+        </tr>
+    }
+</table>

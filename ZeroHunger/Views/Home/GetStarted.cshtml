@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "GetStarted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .img {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<div class="row">
+    <div class="col shadow-lg mx-5 my-2">
+        <img src="../../Content/pexels-archie-binamira-754769.jpg" class="img-fluid img" />
+    </div>
+    <div class="col d-flex flex-column align-items-center justify-content-center gap-2">
+        @Html.ActionLink("Sign Up As Restaurant", "RestaurantRegistration", "Registration", new { area = "" }, new { @class = "btn btn-lg btn-primary w-75" })
+        @Html.ActionLink("Sign Up As Employee", "EmployeeRegistration", "Registration", new { area = "" }, new { @class = "btn btn-lg btn-primary w-75" })
+        @Html.ActionLink("Sign In As Restaurant", "RestaurantLogin", "Login", new { area = "" }, new { @class = "btn btn-lg btn-primary w-75" })
+        @Html.ActionLink("Sign In As Employee", "EmployeeLogin", "Login", new { area = "" }, new { @class = "btn btn-lg btn-primary w-75" })
+        @Html.ActionLink("Sign In As NGO", "NGOLogin", "Login", new { area = "" }, new { @class = "btn btn-lg btn-primary w-75" })
+    </div>
+</div>
